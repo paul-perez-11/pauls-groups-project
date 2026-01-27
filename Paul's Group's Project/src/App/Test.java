@@ -6,7 +6,7 @@ package App;
 
 /**
  *
- * @author ijhra
+ * @author Paul Joel D. Perez <pjdperez@mymail.mapua.edu.ph>
  */
 public class Test {
     
