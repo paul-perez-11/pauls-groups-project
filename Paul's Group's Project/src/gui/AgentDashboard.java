@@ -765,7 +765,7 @@ public class AgentDashboard extends javax.swing.JFrame {
         viewReserv.setBackground(new java.awt.Color(0, 0, 0));
         viewReserv.setFont(new java.awt.Font("New Peninim MT", 1, 24)); // NOI18N
         viewReserv.setForeground(new java.awt.Color(255, 255, 255));
-        viewReserv.setText("Reservations");
+        viewReserv.setText("Requests");
         viewReserv.setAlignmentY(0.0F);
         viewReserv.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         viewReserv.setBorderPainted(false);
@@ -1604,7 +1604,7 @@ public class AgentDashboard extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("New Peninim MT", 1, 35)); // NOI18N
         Title.setForeground(new java.awt.Color(255, 255, 255));
         Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Title.setText("Pending Reservations");
+        Title.setText("Pending Requests");
         Reservations.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 680, 40));
 
         reservOverview.setBorder(null);
