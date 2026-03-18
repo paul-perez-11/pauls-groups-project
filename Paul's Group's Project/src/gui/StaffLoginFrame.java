@@ -57,7 +57,11 @@ public class StaffLoginFrame extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         switchAccount = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         bgimg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -288,7 +292,12 @@ public class StaffLoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Title;
     private javax.swing.JLabel Username;
     private javax.swing.JLabel bgimg;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField codePass;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JLabel noaccount;
