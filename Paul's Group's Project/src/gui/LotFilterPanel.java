@@ -10,86 +10,118 @@
 
 package gui;
 
-import javax.swing.*;
-import java.awt.*;
 import models.Lot;
 
-public class LotFilterPanel extends JPanel {
-    private JComboBox<String> statusFilter;
-    private JComboBox<String> blockFilter;
-    private JComboBox<String> lotFilter;
-    private JComboBox<String> priceFilter;
-    private JButton applyFilterBtn;
+public class LotFilterPanel extends javax.swing.JPanel {
 
-    public LotFilterPanel(Runnable applyAction) {
-        setBackground(new Color(30, 30, 30));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    private java.lang.Runnable onChange;
+    private javax.swing.JComboBox<String> statusCombo;
+    private javax.swing.JComboBox<String> typeCombo;
+    private javax.swing.JTextField txtMaxPrice;
+    private javax.swing.JTextField txtLotArea;
+    private javax.swing.JTextField txtFloorArea;
+
+    public LotFilterPanel(java.lang.Runnable onChange) {
+        this.onChange = onChange;
+        initComponentsCustom();
+    }
+
+    private void initComponentsCustom() {
+        // Programmatic GUI construction bypassing NetBeans .form constraints
+        setBackground(new java.awt.Color(45, 45, 45));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search Filters", 
+            javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, 
+            javax.swing.border.TitledBorder.DEFAULT_POSITION, 
+            new java.awt.Font("Arial", 1, 14), java.awt.Color.WHITE));
         
-        ImageIcon icon = new ImageIcon(getClass().getResource("/img/filters.png"));
-        Image img = icon.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
-        icon = new ImageIcon(img);
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 10));
 
+        java.awt.Font font = new java.awt.Font("Arial", 0, 14);
+        java.awt.Color fg = java.awt.Color.WHITE;
 
-        JLabel title = new JLabel("Filters:", icon, JLabel.LEFT);
-        title.setFont(new Font("Arial", Font.BOLD, 24)); // Replaced non-standard font
-        title.setForeground(Color.WHITE);
-        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 30, -1, -1));
+        // 1. Status Filter
+        javax.swing.JLabel lblStatus = new javax.swing.JLabel("Status:");
+        lblStatus.setForeground(fg); lblStatus.setFont(font);
+        statusCombo = new javax.swing.JComboBox<>(new String[]{"All", "Available", "Reserved", "Sold", "Pending Purchase", "Pending Reservation"});
+        statusCombo.setFont(font);
 
-        JLabel sFilter = new JLabel("Status:");
-        sFilter.setFont(new Font("Arial", Font.BOLD, 18));
-        sFilter.setForeground(Color.WHITE);
-        add(sFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 65, -1, -1));
+        // 2. Type Filter
+        javax.swing.JLabel lblType = new javax.swing.JLabel("Type:");
+        lblType.setForeground(fg); lblType.setFont(font);
+        typeCombo = new javax.swing.JComboBox<>(new String[]{"All", "Callista", "AlliyahInner", "AlliyahOuter"});
+        typeCombo.setFont(font);
 
-        statusFilter = new JComboBox<>(new String[]{"All", "Vacant", "Reserved", "Occupied"});
-        add(statusFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 65, 120, -1));
+        // 3. Max Price Filter
+        javax.swing.JLabel lblPrice = new javax.swing.JLabel("Max Price (PHP):");
+        lblPrice.setForeground(fg); lblPrice.setFont(font);
+        txtMaxPrice = new javax.swing.JTextField(8);
+        txtMaxPrice.setFont(font);
 
-        JLabel bFilter = new JLabel("Block:");
-        bFilter.setFont(new Font("Arial", Font.BOLD, 18));
-        bFilter.setForeground(Color.WHITE);
-        add(bFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 65, -1, -1));
+        // 4. Lot Area Filter
+        javax.swing.JLabel lblLotArea = new javax.swing.JLabel("Min Lot Area (sqm):");
+        lblLotArea.setForeground(fg); lblLotArea.setFont(font);
+        txtLotArea = new javax.swing.JTextField(4);
+        txtLotArea.setFont(font);
 
-        blockFilter = new JComboBox<>(new String[]{"All", "Block 1", "Block 2", "Block 3", "Block 4", "Block 5"});
-        add(blockFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 65, 120, -1));
+        // 5. Floor Area Filter
+        javax.swing.JLabel lblFloorArea = new javax.swing.JLabel("Min Floor Area (sqm):");
+        lblFloorArea.setForeground(fg); lblFloorArea.setFont(font);
+        txtFloorArea = new javax.swing.JTextField(4);
+        txtFloorArea.setFont(font);
 
-        JLabel lFilter = new JLabel("Type:");
-        lFilter.setFont(new Font("Arial", Font.BOLD, 18));
-        lFilter.setForeground(Color.WHITE);
-        add(lFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 65, -1, -1));
+        // 6. Action Buttons
+        javax.swing.JButton btnApply = new javax.swing.JButton("Apply");
+        btnApply.setFont(new java.awt.Font("Arial", 1, 14));
+        btnApply.setBackground(new java.awt.Color(0, 153, 255));
+        btnApply.setForeground(java.awt.Color.WHITE);
+        
+        javax.swing.JButton btnClear = new javax.swing.JButton("Clear");
+        btnClear.setFont(font);
+        
+        // --- Listeners ---
+        btnApply.addActionListener(e -> onChange.run());
+        btnClear.addActionListener(e -> {
+            statusCombo.setSelectedIndex(0);
+            typeCombo.setSelectedIndex(0);
+            txtMaxPrice.setText("");
+            txtLotArea.setText("");
+            txtFloorArea.setText("");
+            onChange.run();
+        });
 
-        lotFilter = new JComboBox<>(new String[]{"All", "Callista", "AlliyahInner", "AlliyahOuter"});
-        add(lotFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 65, 120, -1));
-        JLabel pFilter = new JLabel("Max Price:");
-        pFilter.setFont(new Font("Arial", Font.BOLD, 18));
-        pFilter.setForeground(Color.WHITE);
-        add(pFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 65, -1, -1));
-
-        priceFilter = new JComboBox<>(new String[]{"All", "Max 3500000", "Max 5500000"});
-        add(priceFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 65, 140, -1));        applyFilterBtn = new JButton("Apply Filter");
-        applyFilterBtn.addActionListener(e -> applyAction.run());
-        add(applyFilterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 100, -1, -1));   
+        // Add components to layout
+        add(lblStatus); add(statusCombo);
+        add(lblType); add(typeCombo);
+        add(lblPrice); add(txtMaxPrice);
+        add(lblLotArea); add(txtLotArea);
+        add(lblFloorArea); add(txtFloorArea);
+        add(btnApply); add(btnClear);
     }
 
     public boolean evaluateLot(Lot lot) {
-        String status = statusFilter.getSelectedItem().toString();
-        String type = lotFilter.getSelectedItem().toString();
-        String price = priceFilter.getSelectedItem().toString();
-        String block = blockFilter.getSelectedItem().toString();
+        String selectedStatus = statusCombo.getSelectedItem().toString();
+        String selectedType = typeCombo.getSelectedItem().toString();
 
-        String currentStatus = lot.getStatus();
-        if (!status.equals("All")) {
-            if (status.equals("Vacant") && !currentStatus.equalsIgnoreCase("Available")) return false;
-            if (status.equals("Reserved") && !(currentStatus.equalsIgnoreCase("Reserved") || currentStatus.toLowerCase().contains("pending"))) return false;
-            if (status.equals("Occupied") && !currentStatus.equalsIgnoreCase("Sold")) return false;
+        if (!selectedStatus.equals("All") && !lot.getStatus().equalsIgnoreCase(selectedStatus)) return false;
+        if (!selectedType.equals("All") && !lot.getLotType().equalsIgnoreCase(selectedType)) return false;
+
+        try {
+            if (!txtMaxPrice.getText().trim().isEmpty()) {
+                double max = Double.parseDouble(txtMaxPrice.getText().trim().replace(",", ""));
+                if (lot.getTcp() > max) return false;
+            }
+            if (!txtLotArea.getText().trim().isEmpty()) {
+                double minLotArea = Double.parseDouble(txtLotArea.getText().trim().replace(",", ""));
+                if (lot.getLotArea() < minLotArea) return false;
+            }
+            if (!txtFloorArea.getText().trim().isEmpty()) {
+                double minFloorArea = Double.parseDouble(txtFloorArea.getText().trim().replace(",", ""));
+                if (lot.getFloorArea() < minFloorArea) return false;
+            }
+        } catch (NumberFormatException e) {
+            // Ignore malformed text input silently and allow the lot to pass
         }
-
-        if (!type.equals("All") && !lot.getLotType().equalsIgnoreCase(type)) return false;
-
-        double lotPrice = lot.getTcp();
-        if (price.equals("Max 3500000") && lotPrice > 3500000) return false;
-        if (price.equals("Max 5500000") && lotPrice > 5500000) return false;
-
-        if (!block.equals("All") && !block.equals("Block " + lot.getBlockID())) return false;
-
+        
         return true;
     }
 
