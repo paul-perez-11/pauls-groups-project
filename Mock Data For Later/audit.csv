@@ -1,2 +1,2 @@
 logId,timestamp,actionType,userId,userRole,details
-
+1,2026-03-19 10:18:25,BUYER_REGISTERED,1,Buyer,New account: buyer@test.com

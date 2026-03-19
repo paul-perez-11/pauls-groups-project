@@ -29,10 +29,13 @@ public class LotFilterPanel extends javax.swing.JPanel {
     private void initComponentsCustom() {
         // Programmatic GUI construction bypassing NetBeans .form constraints
         setBackground(new java.awt.Color(45, 45, 45));
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search Filters", 
-            javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, 
-            javax.swing.border.TitledBorder.DEFAULT_POSITION, 
-            new java.awt.Font("Arial", 1, 14), java.awt.Color.WHITE));
+        setBorder(javax.swing.BorderFactory.createCompoundBorder(
+            javax.swing.BorderFactory.createEmptyBorder(15, 10, 0, 10), // Adds Top, Left, Bottom, Right padding
+            javax.swing.BorderFactory.createTitledBorder(null, "Search Filters", 
+                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, 
+                javax.swing.border.TitledBorder.DEFAULT_POSITION, 
+                new java.awt.Font("Arial", 1, 14), java.awt.Color.WHITE)
+        ));
         
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 10));
 
