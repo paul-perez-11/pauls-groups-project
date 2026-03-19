@@ -1,2 +1,4 @@
 transactionID,date,type,financingType,amount,monthlyAmortization,lotID,buyerID,agentID,status
-
+1,2026-03-19,Reservation,None,20000.0,0.0,8,2,1,Approved
+2,2026-03-19,Purchase,Pag-IBIG Financing (20 Yrs),297324.10000000003,20874.702058567334,7,2,0,Pending
+3,2026-03-19,Purchase,Bank - BPI (15 Yrs),315900.0,27981.422899906836,6,2,0,Pending

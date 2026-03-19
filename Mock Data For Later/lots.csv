@@ -4,9 +4,9 @@ lotID,blockID,lotArea,floorArea,tcp,rf,hdmfMax,type,status
 3,1,75.0,54.0,3454500.0,30000.0,6000000.0,AlliyahOuter,Available
 4,1,75.0,54.0,3456000.0,30000.0,6000000.0,AlliyahOuter,Available
 5,1,100.0,81.0,5761458.0,50000.0,6000000.0,Callista,Available
-6,1,75.0,54.0,3459000.0,30000.0,6000000.0,AlliyahOuter,Available
-7,1,50.0,54.0,3173241.0,20000.0,6000000.0,AlliyahInner,Available
-8,1,50.0,54.0,3174241.0,20000.0,6000000.0,AlliyahInner,Available
+6,1,75.0,54.0,3459000.0,30000.0,6000000.0,AlliyahOuter,Pending Purchase
+7,1,50.0,54.0,3173241.0,20000.0,6000000.0,AlliyahInner,Pending Purchase
+8,1,50.0,54.0,3174241.0,20000.0,6000000.0,AlliyahInner,Reserved
 9,1,50.0,54.0,3175241.0,20000.0,6000000.0,AlliyahInner,Available
 10,1,75.0,54.0,3465000.0,30000.0,6000000.0,AlliyahOuter,Available
 11,1,75.0,54.0,3466500.0,30000.0,6000000.0,AlliyahOuter,Available

@@ -1,2 +1,8 @@
 logId,timestamp,actionType,userId,userRole,details
 1,2026-03-19 10:18:25,BUYER_REGISTERED,1,Buyer,New account: buyer@test.com
+2,2026-03-19 11:15:29,BUYER_REGISTERED,2,Buyer,New account: brentvictorio@gmail.com
+3,2026-03-19 11:23:42,BUYER_REGISTERED,3,Buyer,New account: brentvictorio0@gmail.com
+4,2026-03-19 11:25:57,AGENT_REGISTERED,1,Agent,New account: euanridulme@gmail.com
+5,2026-03-19 11:26:27,TRANSACTION_APPROVED,1,Agent,Approved TransID 1 for Lot 8
+6,2026-03-19 11:30:02,LOT_OVERRIDE,1,Admin,Admin overridden Lot 8 from Reserved to Available
+7,2026-03-19 11:30:13,LOT_OVERRIDE,1,Admin,Admin overridden Lot 8 from Available to Reserved
