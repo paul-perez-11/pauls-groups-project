@@ -10,7 +10,7 @@ A project in Object-oriented Programming (CSS122P) developed for the School of I
 * Yousef B. Alnamarneh
 
 ## Project Context
-CREAMS is a Java Swing-based desktop application engineered to process complex lot inventories, buyer specifications, and financial conditions for residential developments like Sabella Village in General Trias, Cavite. The system centralizes data to prevent administrative bottlenecks and double-selling.
+CREAMS is a Java Swing-based desktop application engineered to process complex lot inventories, buyer specifications, and financial conditions based on the residential developments of Sabella Village in General Trias, Cavite. The system centralizes data to prevent administrative bottlenecks and double-selling.
 
 ## Prerequisites
 * **Java Development Kit (JDK):** Version 8 or higher.
